@@ -36,13 +36,6 @@ LoadModule php_module "C:/xampp/php/php8apache2_4.dll"
 #    Action application/x-httpd-php-cgi "/php-cgi/php-cgi.exe"
 #</IfModule>
 
-# Disable detailed error messages
-ServerSignature Off
-ServerTokens Prod
-ErrorDocument 500 "Internal Server Error"
-ErrorDocument 404 "Page Not Found"
-ErrorDocument 403 "Access Denied"
-
 <IfModule php_module>
     PHPINIDir "C:/xampp/php"
 </IfModule>
