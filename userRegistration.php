@@ -5,9 +5,10 @@ if (!isset($_SESSION['csrf_token'])) {
 }
 
 $nonce = base64_encode(random_bytes(16));
+// header_remove("X-Frame-Options"); // Remove duplicates
 header("Content-Security-Policy: default-src 'self'; script-src 'self' 'nonce-$nonce'; style-src 'self'");
 header("Strict-Transport-Security: max-age=31536000; includeSubDomains");
-header("X-Frame-Options: SAMEORIGIN");
+// header("X-Frame-Options: SAMEORIGIN");
 header("X-Content-Type-Options: nosniff");
 header("Referrer-Policy: no-referrer");
 
