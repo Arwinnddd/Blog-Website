@@ -8,20 +8,33 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
     exit;
 }
 
+$error_message = "";
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $role = $_POST['role'];
 
-    $stmt = $conn->prepare("INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $username, $email, $password, $role);
-
-    if ($stmt->execute()) {
-        header('Location: accountsManagement.php');
-        exit;
+    // Check if the username already exists
+    $check_stmt = $conn->prepare("SELECT id FROM users WHERE username = ?");
+    $check_stmt->bind_param("s", $username);
+    $check_stmt->execute();
+    $check_stmt->store_result();
+    
+    if ($check_stmt->num_rows > 0) {
+        $error_message = "Username already taken. Please choose a different one.";
     } else {
-        echo "Error: " . $stmt->error;
+        // Insert new user if username is unique
+        $stmt = $conn->prepare("INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $username, $email, $password, $role);
+
+        if ($stmt->execute()) {
+            header('Location: accountsManagement.php');
+            exit;
+        } else {
+            $error_message = "Error: " . $stmt->error;
+        }
     }
 }
 ?>
@@ -36,7 +49,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="icon" type="image/x-icon" href="images/logo.ico">
 
     <style>
-        
         *{
             font-family: 'Segoe UI', Poppins, Tahoma, Geneva, Verdana, sans-serif;
         }
@@ -69,7 +81,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .main-content h3 {
             font-size: 1.5rem;
             font-weight: 300;
-            
         }
         .btn-custom {
             background-color: black;
@@ -96,7 +107,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-size: 1.2rem;
             margin-right: 10px;
             transition: all 0.3s ease;
-
         }
 
         .nav-separator {
@@ -133,16 +143,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .nav-links .nav-link:hover {
             transition: all 0.4s ease;
             color: #a5ab90fe;
-
         }
-
-
     </style>
-
 </head>
 <body>
 <div class="container mt-5">
     <h2 class="text-center">Create New Account</h2>
+    <?php if (!empty($error_message)): ?>
+        <div class="alert alert-danger" role="alert">
+            <?php echo $error_message; ?>
+        </div>
+    <?php endif; ?>
     <form method="POST" action="create_account.php">
         <div class="mb-3">
             <label for="username" class="form-label">Username</label>
