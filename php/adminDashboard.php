@@ -1,5 +1,7 @@
 <?php
+ini_set("session.cookie_httponly", 1);
 session_start();
+
 if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
     header('Location: userLogIn.php');
     exit;
@@ -100,8 +102,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reply_comment'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagsulat - Admin Dashboard</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
+
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"> -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/logo.ico">
 
 
     <style>
@@ -226,16 +235,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reply_comment'])) {
                 <a class="nav-link " href="post_dashboard.php"><b>&nbsp;Post Dashboard &nbsp;</b></a>
                 <a class="nav-link " href="comments_dashboard.php"><b>&nbsp;Comment Dashboard &nbsp;</b></a>
                 <a class="nav-link " href="accountsManagement.php"><b>&nbsp;Account Management &nbsp;</b></a>
-                <a class="nav-link " href="logout.php"><b>&nbsp;Log Out &nbsp;</b></a>
-
                 <span class="nav-separator mx-2 text-white">|</span>
-                <a class="nav-link text-white hr" href="#">&nbsp;&nbsp;Follow us &nbsp;&nbsp;</a>
-                    <div class = "nav-links d-flex align-items-center h-right">
-                        <a class="nav-icon" href="#"><i class="ri-instagram-fill"></i></a>
-                        <a class="nav-icon" href="#"><i class="ri-facebook-circle-fill"></i></a>
-                        <a class="nav-icon" href="#"><i class="ri-github-fill"></i></a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </div>
+                <a class="nav-link " href="logout.php"><b>&nbsp;&nbsp;&nbsp;&nbsp;Log Out &nbsp;</b></a>
 
             </div>
         </div>

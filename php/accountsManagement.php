@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagsulat - Acount Management</title>
+    <link rel="icon" type="image/x-icon" href="images/logo.ico">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-   
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
+
+
 <style>
         
         *{
@@ -128,15 +132,9 @@
                 <a class="nav-link " href="post_dashboard.php"><b>&nbsp;Post Dashboard &nbsp;</b></a>
                 <a class="nav-link " href="comments_dashboard.php"><b>&nbsp;Comment Dashboard &nbsp;</b></a>
                 <a class="nav-link " href="#" style="color: #a5ab90fe;"><b>&nbsp;Account Management &nbsp;</b></a>
-                <a class="nav-link " href="logout.php"><b>&nbsp;Log Out &nbsp;</b></a>
                 <span class="nav-separator mx-2 text-white">|</span>
-                <a class="nav-link text-white hr" href="#">&nbsp;&nbsp;Follow us &nbsp;&nbsp;</a>
-                <div class = "nav-links d-flex align-items-center h-right">
-                    <a class="nav-icon" href="#"><i class="ri-instagram-fill"></i></a>
-                    <a class="nav-icon" href="#"><i class="ri-facebook-circle-fill"></i></a>
-                    <a class="nav-icon" href="#"><i class="ri-github-fill"></i></a>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </div>
+                <a class="nav-link " href="logout.php"><b>&nbsp;&nbsp;&nbsp;&nbsp;Log Out &nbsp;</b></a>
+                
             </div>
         </div>
     </nav>
@@ -159,6 +157,8 @@
         </thead>
         <tbody>
             <?php
+            
+            /////////////////////////
             include 'db_connect.php';
             $query = "SELECT id, username, email, role FROM users";
             $result = $conn->query($query);
@@ -196,7 +196,7 @@
                 <form id="deleteForm">
                     <input type="hidden" name="user_id" id="user_id">
                     <label for="adminPassword" class="form-label">Enter Admin Password:</label>
-                    <input type="password" class="form-control" name="password" id="adminPassword" required>
+                    <input type="password" class="form-control" name="password" id="adminPassword" required autocomplete="off">
                     <div class="mt-3">
                         <button type="submit" class="btn btn-danger">Confirm Delete</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>

@@ -59,7 +59,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_post'])) {
 }
 
 // Handle post deletion after password verification
-// Handle post deletion after password verification
 if (isset($_POST['delete_post_button']) && isset($_POST['delete_post']) && isset($_POST['delete_post_password'])) {
     $postId = $_POST['delete_post']; // Get post ID from POST
     $adminPassword = $_POST['delete_post_password'];
@@ -110,6 +109,8 @@ if (!$result) {
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/logo.ico">
 
 
     <style>
@@ -228,15 +229,9 @@ if (!$result) {
                 <a class="nav-link " href="#" style="color: #a5ab90fe;"><b>&nbsp;Post Dashboard &nbsp;</b></a>
                 <a class="nav-link " href="comments_dashboard.php"><b>&nbsp;Comment Dashboard &nbsp;</b></a>
                 <a class="nav-link " href="accountsManagement.php"><b>&nbsp;Account Management &nbsp;</b></a>
-                <a class="nav-link " href="logout.php"><b>&nbsp;Log Out &nbsp;</b></a>
                 <span class="nav-separator mx-2 text-white">|</span>
-                <a class="nav-link text-white hr" href="#">&nbsp;&nbsp;Follow us &nbsp;&nbsp;</a>
-                <div class = "nav-links d-flex align-items-center h-right">
-                    <a class="nav-icon" href="#"><i class="ri-instagram-fill"></i></a>
-                    <a class="nav-icon" href="#"><i class="ri-facebook-circle-fill"></i></a>
-                    <a class="nav-icon" href="#"><i class="ri-github-fill"></i></a>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </div>
+                <a class="nav-link " href="logout.php"><b>&nbsp;&nbsp;&nbsp;&nbsp;Log Out &nbsp;</b></a>
+                
             </div>
         </div>
     </nav>

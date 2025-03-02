@@ -4,6 +4,7 @@
 
 }
 body {
+    /* background: red !important; */
     background: url(images/background.jpg) no-repeat center center fixed;
     background-size: cover;
     color: white;
@@ -113,6 +114,17 @@ body {
 }
 
 
+.eyepass{
+      background: transparent; 
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+
 
 .mb-3 input:focus {
     background-color: transparent;
@@ -153,6 +165,43 @@ body {
     border-bottom: 1px solid #ccc;
     box-sizing: border-box;
     outline: none;
-    color: white;
+    color: white !important;
     
 }
+
+.input-box{
+    background-color: transparent;
+    padding-right: 8px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    outline: none;
+    color: white !important;
+}
+
+.input-box img {
+    width: 25px;
+    cursor: pointer;
+}
+
+#message{
+    position: absolute;
+    color: #fff ;
+    font-size: 12px;
+    display: none;
+    margin-top: 5px;
+
+}
+
+.weak {
+    color: red;
+}
+
+.medium {
+    color: orange;
+}
+
+.strong {
+    color: rgb(7, 166, 7);
+}
+

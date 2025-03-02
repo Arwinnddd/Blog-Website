@@ -59,6 +59,7 @@ if (isset($_POST['update'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagsulat - Comments Dashboard</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/logo.ico">
 
     <style>
         
@@ -177,15 +178,9 @@ if (isset($_POST['update'])) {
                 <a class="nav-link " href="post_dashboard.php"><b>&nbsp;Post Dashboard &nbsp;</b></a>
                 <a class="nav-link " href="#" style="color: #a5ab90fe;"><b>&nbsp;Comment Dashboard &nbsp;</b></a>
                 <a class="nav-link " href="accountsManagement.php"><b>&nbsp;Account Management &nbsp;</b></a>
-                <a class="nav-link " href="logout.php"><b>&nbsp;Log Out &nbsp;</b></a>
                 <span class="nav-separator mx-2 text-white">|</span>
-                <a class="nav-link text-white hr" href="#">&nbsp;&nbsp;Follow us &nbsp;&nbsp;</a>
-                <div class = "nav-links d-flex align-items-center h-right">
-                    <a class="nav-icon" href="#"><i class="ri-instagram-fill"></i></a>
-                    <a class="nav-icon" href="#"><i class="ri-facebook-circle-fill"></i></a>
-                    <a class="nav-icon" href="#"><i class="ri-github-fill"></i></a>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </div>
+                <a class="nav-link " href="logout.php"><b>&nbsp;&nbsp;&nbsp;&nbsp;Log Out &nbsp;</b></a>
+            
             </div>
         </div>
     </nav>

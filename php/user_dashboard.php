@@ -136,6 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reply_comment_id'])) 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">
     <link rel="stylesheet" href ="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href ="style.css">
+    <link rel="icon" type="image/x-icon" href="images/logo.ico">
     
 
     <style>
